@@ -1,0 +1,4 @@
+fw	net	ACCEPT
+net	all	REJECT	info
+all	all	DROP	info
+#SOURCE    DEST   POLICY   LOG LEVEL    LIMIT BURST    CONNLIMIT MASK

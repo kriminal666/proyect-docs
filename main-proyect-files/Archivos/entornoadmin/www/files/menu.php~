@@ -1,0 +1,11 @@
+
+
+
+   
+
+  <p><?php echo SALUDO ?></p>
+<b>[<?php echo $_SESSION['user'] ?>]</b>&nbsp;<a href="../index.php?sesion=logout" title="Salir">Salir</a><br/>
+
+
+
+

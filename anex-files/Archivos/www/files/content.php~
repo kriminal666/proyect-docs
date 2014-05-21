@@ -1,0 +1,44 @@
+<br/>
+<?php
+    switch($_SESSION['user']){
+        case willy: 
+           echo "<p>".CONT_WILLY."</p>";
+            //Si ha hecho click en el enlace de las listas
+            if(isset($_GET["call"])){
+               
+               
+                /*variable que coje el valor de
+                *la variable de sesión con el nombre del listado que se haya escogido.
+                 */
+                 $lista=$_SESSION[$_GET["call"]]; 
+               
+
+            echo "<div align=\"center\">
+                <table style=\"border:solid\">
+                        <tr>
+                        <td><pre>$lista</pre></td></tr></table></div>";
+            }
+           
+            break;
+        case wonka:
+            lenguaje();
+            echo"<p>".CONT_WONKA."</p><br/>";
+            echo "<form method='post' action='intranet.php'>
+      		  <input type='text' name='num' value='' size='22' maxlength='2' placeholder='Introduce un n&uacute;mero de listado'/><br/>
+      		  <input type='text' name='cmd' value='' size='22' maxlength='20' placeholder='Introduce un comando de terminal'/><br/>
+                   <input type='submit' value="."'".ENVIO."'"." name='envia'/> 
+               </form>";
+            if(isset($_GET["fallo"])){
+            echo "<div align=\"center\">
+                <table style=\"border:solid\" bgcolor=\"#FF4000\">
+                        <tr>
+                        <td><h4>".FALLO."</h4></td></tr></table></div>";
+            }
+            break;
+
+	}
+ ?>   
+    
+    
+    
+

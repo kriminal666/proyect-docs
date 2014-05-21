@@ -1,0 +1,73 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+//Zonas del dominio principal.
+
+zone "iesebre.com" IN {
+type master;
+file "/etc/bind/iesebre.com.hosts";
+allow-update {key "rndc-key"; };
+notify yes;
+};
+
+zone "168.192.in-addr.arpa" IN {
+type master;
+file "/etc/bind/168.192.in-addr.arpa.rev";
+allow-update {key "rndc-key"; };
+notify yes;
+};
+
+//Zonas para el aula 20.2
+
+zone "aula202.iesebre.com" IN {
+type master;
+file "/etc/bind/aula202/aula202.iesebre.com.hosts";
+allow-update {key "rndc-key"; };
+notify yes;
+};
+
+zone "202.168.192.in-addr.arpa" IN {
+type master;
+file "/etc/bind/aula202/202.168.192.in-addr.arpa.rev";
+allow-update {key "rndc-key"; };
+notify yes;
+};
+
+//Zonas para el aula 20.3
+
+zone "aula203.iesebre.com" IN {
+type master;
+file "/etc/bind/aula203/aula203.iesebre.com.hosts";
+allow-update {key "rndc-key"; };
+notify yes;
+};
+
+zone "203.168.192.in-addr.arpa" IN {
+type master;
+file "/etc/bind/aula203/203.168.192.in-addr.arpa.rev";
+allow-update {key "rndc-key"; };
+notify yes;
+};
+
+//Zonas para el aula 20.4
+
+zone "aula204.iesebre.com" IN {
+type master;
+file "/etc/bind/aula204/aula204.iesebre.com.hosts";
+allow-update {key "rndc-key"; };
+notify yes;
+};
+
+zone "204.168.192.in-addr.arpa" IN {
+type master;
+file "/etc/bind/aula204/204.168.192.in-addr.arpa.rev";
+allow-update {key "rndc-key"; };
+notify yes;
+};
+
+include "/etc/bind/rndc.key";

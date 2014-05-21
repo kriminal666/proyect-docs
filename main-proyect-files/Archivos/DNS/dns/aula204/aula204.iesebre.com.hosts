@@ -1,0 +1,14 @@
+$ORIGIN .
+$TTL 604800	; 1 week
+aula204.iesebre.com	IN SOA	aula204.iesebre.com. root.aula204.iesebre.com. (
+				6          ; serial
+				604800     ; refresh (1 week)
+				86400      ; retry (1 day)
+				2419200    ; expire (4 weeks)
+				604800     ; minimum (1 week)
+				)
+			NS	aula204.iesebre.com.
+			A	192.168.204.1
+$ORIGIN aula204.iesebre.com.
+$TTL 5400	; 1 hour 30 minutes
+PC2			TXT	"004d0680bd2f34d8df58207d0d5cce67a8"

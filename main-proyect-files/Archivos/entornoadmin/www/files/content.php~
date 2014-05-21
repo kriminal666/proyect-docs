@@ -1,0 +1,63 @@
+<br/>
+<?php
+    switch($_SESSION['admin']){
+        case 0: 
+            //Si ha hecho click en el enlace pedir comandos
+            if(isset($_GET["pedircomandos"])){
+               include('form_comandos.php');
+            //Si quiere ver los comandos pedidos 
+            }elseif(isset($_GET["vercomandos"])){
+                include('ver_comandos.php');
+            }
+            //Mensaje de aviso de guardado o fallo
+            if($msg){
+                echo "<h2>$msg</h2>";
+            }
+           //Si se pide ver el comando
+            if(isset($_GET['vercomando'])){
+                
+               //Recuperamos la ejecución del comando según su id, único
+                $comando=mysql_fetch_array(comando($_GET['vercomando']));
+                echo"<h2>Resultado del comando ejecutado con id:".$_GET['vercomando']."</h2>";
+                echo "<br/><div align=\"center\">
+                <table border=\"5\" bordercolor=\"red\">
+                        <tr>
+                        <td><pre>$comando[resultat_comanda]</pre></td></tr></table></div>";
+            }
+                break;
+        case 1:
+          //Recuperamos los datos
+          $array=recupera("1");
+          //Número de filas recuperadas  
+          $result=mysql_num_rows($array);
+          //Si hay alguna fila de la base de datos
+          if($result!="0"){
+              echo "<h2>Peticiones de ejecici&oacute;n de comandos</h2>";
+          
+              echo "<div align=\"center\">
+                <table border=\"5\" bordercolor=\"red\" bgcolor=\"#2EFE9A\">";
+              //Bucle para recuperar las filas
+             while($row=mysql_fetch_array($array)){
+        
+                  echo"<tr>";
+                  echo "<td>$row[nom]</td>";
+                  echo "<td>$row[comanda]</td>";
+                  echo "<td><a href=\"intranet.php?id=$row[id]&cmd=$row[comanda]\" title=\"Ejecutar\">Ejecutar</a>
+                      </td></tr>";
+                  }
+                  echo "</table></div>";
+              /*Si no quedan comandos o no hay filas recuperadas
+               *  mostramos el mensaje.    
+               */
+              }else{
+                 echo "<h2>No hay peticiones de ejecuci&oacute;n de comandos</h2>"; 
+          }
+          
+            break;
+
+	}
+ ?>   
+    
+    
+    
+

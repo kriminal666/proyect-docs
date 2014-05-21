@@ -1,0 +1,44 @@
+
+
+
+   
+
+  <p><?php echo SALUDO ?></p>
+<b>[<?php echo $_SESSION['user'] ?>]</b>&nbsp;<a href="../index.php?sesion=logout" title="Salir">Salir</a><br/>
+
+<?php
+    /*El fichero de las funciones está incluido ya en intranet
+     * así que podemos llamar a sus funciones
+     */
+    switch($_SESSION['user']){
+        case willy:
+            /*Llamo a la función que controla las cookies
+             *  y las convierte en variables de sesión
+             */
+            miracookie();
+            
+            /*Recupero el valor de retorno del contador para crear enlaces
+             *en función del número de cookies que había
+             */
+            $enlaces=cuenta();
+            //Si había alguna cookie, el valor será diferente de 0
+             if($enlaces!="0"){
+               echo "<p>".LISTA."</p>";
+              
+                 //creo un bucle en función de los enlaces que haya que crear
+                for($f=1;$f<=$enlaces;$f++){
+                     echo "<ul>
+		<li><a href=\"intranet.php?call=listado$f\" title=\"Listado1\">Lista$f</a></li>
+	</ul>";
+            }
+            }
+            break;
+        case wonka:
+            break;
+            
+            
+    }
+    
+    ?>
+
+

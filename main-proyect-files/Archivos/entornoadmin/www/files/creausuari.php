@@ -1,0 +1,94 @@
+
+<?php
+    //iniciamos sesión para recuperar variables si existen
+   session_start();
+    //si no se ha pasado por la página de login se le da el error
+    if(!($_SESSION['user'])){
+        header('Location:error.php');
+    }else{
+//Si existen las variables del formulario
+if((isset($_POST["user"]))&&(isset($_POST["passwd"]))&&(isset($_POST["nomape"]))){
+    //Si las variables,sin espacios,no estan vacias
+     if(trim($_POST["user"]) != "" && trim($_POST["passwd"]) != ""){ 
+      //Pasamos los valores a variables.
+      $user=strtolower(htmlentities($_POST["user"], ENT_QUOTES));
+      $nomape=$_POST["nomape"];
+      //Encriptamos la contraseña
+      $pass=hash('sha512',$_POST["passwd"]);
+      include('../funciones/bbdd.php');
+      //Conectamos con la base de datos
+      conecta();
+      //Vamos a comprobar ahora si el usuario existe en la base de datos
+      $consulta="SELECT user FROM usuarios WHERE user='$user'";
+      $result=mysql_fetch_array(mysql_query($consulta));
+      //Si existe
+      if($result){
+          header('Location:error.php?error=3');
+      }else{
+          $inserta="INSERT INTO usuarios VALUES ('','$user','$nomape','$pass')";
+          //Comprobamos si se ha insertado bien
+          if(mysql_query($inserta)){
+          header('Location:creausuari.php?user=1');
+          }else{
+         //si el registro ha fallado
+          header('Location:error.php?error=4');
+          }
+       //Desconectamos de la base de datos
+       desconecta();
+      }
+      }else{
+       header('Location:error.php?error=5');
+}
+}
+}
+
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="UTF-8"/>
+		<title>REGISTRO</title>
+		<link rel="stylesheet" type="text/css" href="../css/estilo-login.css"/>
+	</head>
+    <body>
+        <?php
+        //Si el usuario se ha creado correctamente
+        if((isset($_GET["user"]))&&($_GET["user"]=="1")){
+            echo "<div id=\"content\">
+		<h2>USUARIO CREADO CORRECTAMENTE</h2>
+               <div id=\"footer\">
+               <a href=\"intranet.php\" title=\"volver\">Volver al entorno</a><br/><br/>
+		<span id=\"autor\"><a href=\"www.iesebre.com\" title=\"iesebre\">www.iesebre.com</a></span>
+	   </div>
+	
+	</div> ";
+        }else{
+            
+        echo "
+        <div id=\"content\">
+		<h2>AÑADIR USUARIO</h2>
+		<form method=\"post\" action=\"creausuari.php\">
+                   <!--Empezamos a asegurar que se introduce algo desde aquí(required)--> 
+		<h3>Nombre de login</h3>
+      		 <input type=\"text\" name=\"user\" value=\"\" size=\"15\" maxlength=\"20\" placeholder=\"user\" required/>
+		<h3>Nombre y apellidos reales</h3>
+		<input type=\"text\" name=\"nomape\" value=\"\" size=\"15\" maxlength=\"20\" placeholder=\"Nombre Apellido\" required/>
+		<h3>Password</h3>
+      		 <input type=\"password\" name=\"passwd\" value=\"\" size=\"15\" maxlength=\"10\" placeholder=\"Password\" required/>
+                  <br/>
+                   
+                      
+                      
+                  <input type=\"submit\" value=\"Crear\" name=\"logon\"/> 
+               </form>
+                <a href=\"intranet.php\" title=\"volver\">Volver a entorno</a><br/><br/>
+	   <div id=\"footer\">
+		<span id=\"autor\"><a href=\"www.iesebre.com\" title=\"iesebre\">www.iesebre.com</a></span>
+	   </div>
+	
+	</div>";
+        }
+        ?>
+
+    </body>
+</html>

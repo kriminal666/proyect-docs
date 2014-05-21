@@ -1,0 +1,49 @@
+<?php
+     //iniciamos sesión para recuperar variables si existen
+   session_start();
+    //si no se ha pasado por la página de login se le da el error
+    if(!($_SESSION['user'])){
+        header('Location:error.php');
+    }
+      //incluyo el fichero miscelania para controlar el idioma.
+        include('../funciones/miscelania.php');
+?>
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+		<title>INTRANET</title>
+		<link rel="stylesheet" type="text/css" href="../css/estilo-intranet.css"/>
+	</head>
+	<body>
+		<div id="toplogo">
+			<?php
+			     include 'top.php';
+			?>
+		</div>
+		<div id="content">
+			<div id="maincontent">
+				<br/>
+				 <?php
+				      include 'content.php';
+                                      
+				?> 
+			</div>
+				<br/>
+				<br/>
+			<div id="leftcontent">
+				<br/>
+				<?php
+				      include 'menu.php';
+				?>
+			</div>
+                     </div>
+
+		<div id="footer">
+			<?php
+			      include 'bottom.php';
+			?>
+		</div>
+	</body>
+</html>
+

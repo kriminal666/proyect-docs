@@ -1,0 +1,5 @@
+#ZONE   INTERFACE       BROADCAST       OPTIONS
+net       eth0            detect          
+loc1      eth1            detect          dhcp,blacklist
+loc2      eth2            detect          dhcp,blacklist
+loc3      eth3            detect          dhcp,blacklist

@@ -1,0 +1,56 @@
+function FindProxyForURL(url, host)
+{ 
+
+        if (
+            isInNet(host, "192.168.202.0",  "255.255.255.0")
+        ||  isInNet(host, "127.0.0.0", "255.0.0.0")
+        ||  shExpMatch(host, "192.168.202.*")
+        ||  shExpMatch(host, "127.*" )
+        ||  shExpMatch(host, "localhost")
+        ||  shExpMatch(host, "*.iesebre.com")
+        ||  isPlainHostName(host)
+        ||  dnsDomainIs(host, ".iesebre.com")
+        ) {
+            return "DIRECT"; 
+          }
+        else 
+          {
+            return "PROXY 192.168.202.1:3128";
+          }
+
+     if (
+            isInNet(host, "192.168.203.0",  "255.255.255.0")
+        ||  isInNet(host, "127.0.0.0", "255.0.0.0")
+        ||  shExpMatch(host, "192.168.203.*")
+        ||  shExpMatch(host, "127.*" )
+        ||  shExpMatch(host, "localhost")
+        ||  shExpMatch(host, "*.iesebre.com")
+        ||  isPlainHostName(host)
+        ||  dnsDomainIs(host, ".iesebre.com")
+        ) {
+            return "DIRECT"; 
+          }
+        else 
+          {
+            return "PROXY 192.168.203.1:3128";
+          }
+
+     if (
+            isInNet(host, "192.168.204.0",  "255.255.255.0")
+        ||  isInNet(host, "127.0.0.0", "255.0.0.0")
+        ||  shExpMatch(host, "192.168.204.*")
+        ||  shExpMatch(host, "127.*" )
+        ||  shExpMatch(host, "localhost")
+        ||  shExpMatch(host, "*.iesebre.com")
+        ||  isPlainHostName(host)
+        ||  dnsDomainIs(host, ".iesebre.com")
+        ) {
+            return "DIRECT"; 
+          }
+        else 
+          {
+            return "PROXY 192.168.204.1:3128";
+          }
+
+
+}

@@ -1,0 +1,14 @@
+ACCEPT	loc3	net:91.189.91.13	tcp
+ACCEPT	loc1	fw	tcp	80,3128
+ACCEPT	loc2	fw	tcp	80,3128
+ACCEPT	loc3	fw	tcp	80,3128
+Ping/ACCEPT	fw	all
+Ping/ACCEPT	loc1	all
+Ping/ACCEPT	loc2	all
+Ping/ACCEPT	loc3	all
+DNS/ACCEPT	loc1	fw
+DNS/ACCEPT	loc2	fw
+DNS/ACCEPT	loc3	fw
+DHCPfwd/ACCEPT	loc1	fw
+DHCPfwd/ACCEPT	loc2	fw
+DHCPfwd/ACCEPT	loc3	fw

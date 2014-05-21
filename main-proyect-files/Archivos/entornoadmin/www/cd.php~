@@ -1,0 +1,9 @@
+<?php
+$cmd=shell_exec('sudo ls -l /etc/squid3/copias/dominios-restringidos');
+if(!$cmd==""){
+echo "el archivo existe";
+}else{
+echo $cmd;
+echo "El archivo no existe";
+}
+?>

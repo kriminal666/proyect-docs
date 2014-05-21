@@ -1,0 +1,17 @@
+;
+; BIND data file for reverse aula20.3 interface
+;
+$TTL	604800
+@	IN	SOA	server10.iesebre.com. root.iesebre.com. (
+			      3		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+	IN	NS	iesebre.com.
+1	IN	PTR	server10.iesebre.com.
+
+
+
+
+

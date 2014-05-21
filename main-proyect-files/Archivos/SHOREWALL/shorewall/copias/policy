@@ -1,0 +1,5 @@
+#SOURCE    DEST   POLICY   LOG LEVEL    LIMIT BURST    CONNLIMIT MASK
+fw	   net	  ACCEPT
+net	   all	  REJECT	$LOG
+all	   all	  DROP	        $LOG
+

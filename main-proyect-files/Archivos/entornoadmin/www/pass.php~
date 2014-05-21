@@ -1,0 +1,9 @@
+<?php
+$pass=hash('sha512','1234');
+$pass2=sha512('1234');
+
+echo $pass;
+echo "\n";
+echo $pass2;
+?>
+

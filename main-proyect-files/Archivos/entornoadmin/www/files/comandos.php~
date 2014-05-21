@@ -1,0 +1,41 @@
+<?php
+
+define("LISTADO","");
+define("LISTADO1","     March 2014       
+Su Mo Tu We Th Fr Sa  
+                   1  
+ 2  3  4  5  6  7  8  
+ 9 10 11 12 13 14 15  
+16 17 18 19 20 21 22  
+23 24 25 26 27 28 29  
+30 31                 
+");
+define("LISTADO","");
+define("LISTADO1","     March 2014       
+Su Mo Tu We Th Fr Sa  
+                   1  
+ 2  3  4  5  6  7  8  
+ 9 10 11 12 13 14 15  
+16 17 18 19 20 21 22  
+23 24 25 26 27 28 29  
+30 31                 
+");
+define("LISTADO2","total 60
+-rw-rw-r-- 1 satan satan   51 Mar  1 10:13 bottom.php
+-rw-rw-r-- 1 satan satan    0 Mar  1 10:12 bottom.php~
+-rwxrwxrwx 1 satan satan  465 Mar  4 15:58 comandos.php
+-rwxrwxrwx 1 satan satan    7 Mar  4 13:25 comandos.php~
+-rw-rw-r-- 1 satan satan  580 Mar  1 23:33 config.php
+-rw-rw-r-- 1 satan satan  918 Mar  4 13:21 content.php
+-rw-rw-r-- 1 satan satan   92 Mar  1 10:54 content.php~
+-rw-rw-r-- 1 satan satan  812 Mar  3 17:52 error.php
+-rw-rw-r-- 1 satan satan  414 Feb 27 16:59 error.php~
+-rw-rw-r-- 1 satan satan 1040 Mar  4 13:20 intranet.php
+-rw-rw-r-- 1 satan satan  624 Mar  1 10:42 intranet.php~
+-rw-rw-r-- 1 satan satan 1425 Mar  3 13:26 logincheck.php
+-rw-rw-r-- 1 satan satan  724 Mar  3 12:51 menu.php
+-rw-rw-r-- 1 satan satan  430 Mar  1 10:54 menu.php~
+-rw-rw-r-- 1 satan satan 1005 Mar  4 13:10 miscelania.php
+-rw-rw-r-- 1 satan satan   31 Mar  3 13:40 top.php
+-rw-rw-r-- 1 satan satan    0 Mar  1 09:58 top.php~
+");

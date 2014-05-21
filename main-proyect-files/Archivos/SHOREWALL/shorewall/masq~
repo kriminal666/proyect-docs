@@ -1,0 +1,4 @@
+#INTERFACE    SOURCE    ADDRESS      PROTO   PORT(S) IPSEC   MARK    USER/GROUP
+eth0           eth1
+eth0           eth2
+eth0           eth3

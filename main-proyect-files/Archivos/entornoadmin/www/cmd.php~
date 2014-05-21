@@ -1,0 +1,34 @@
+
+<?php
+
+function prueba(){
+
+system('sudo cp  /etc/squid3/dominios-restringidos copias');
+$cmd2=shell-exec('echo $?');
+return $cmd2;
+}
+?>
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<title>CMD</title>
+</head>
+<body>
+
+<?php
+$cmd=prueba();
+echo"<pre>$cmd</pre>";
+?>
+
+</body>
+</html>
+

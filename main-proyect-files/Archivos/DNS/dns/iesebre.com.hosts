@@ -1,0 +1,18 @@
+;
+; BIND reverse data file for local loopback interface
+;
+$TTL	604800
+@	IN	SOA	server10.iesebre.com. root.iesebre.com. (
+			      1		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+iesebre.com.	IN	NS	server10.iesebre.com.
+server10.iesebre.com.	IN	A	192.168.202.1
+server10.iesebre.com.	IN	A	192.168.203.1
+server10.iesebre.com.	IN	A	192.168.204.1
+www	CNAME	server10
+wpad	CNAME	server10
+profire	CNAME	server10

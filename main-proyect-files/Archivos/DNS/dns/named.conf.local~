@@ -1,0 +1,85 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+//acls para cada aula y el servidor correspondiente
+acl "aula20.2" { 192.168.202.0/24; };
+acl "serv20.2" {192.168.202.1/24; };
+acl "aula20.3" { 192.168.203.0/24; };
+acl "serv20.3" {192.168.203.1/24; };
+acl "aula20.4" { 192.168.204.0/24; };
+acl "serv20.4" {192.168.204.1/24; };
+
+//Vista y zonas para el aula 20.2
+view "aula20.2" {
+match-clients { aula20.2; !any; };
+allow-recursion-on { serv20.2; };
+
+zone "iesebre.com" IN {
+type master;
+file "/etc/bind/aula202/db.202.hosts";
+allow-transfer { 192.168.202.1; };
+allow-update {key "rndc-key"; };
+notify yes;
+};
+
+zone "202.168.192.in-addr.arpa" IN {
+type master;
+file "/etc/bind/aula202/202.rev";
+allow-transfer { 192.168.202.1; };
+allow-update {key "rndc-key"; };
+notify yes;
+};
+include "/etc/bind/named.conf.default-zones";
+};
+
+//Vista y zonas para el aula 20.3
+view "aula20.3" {
+match-clients { aula20.3; !any; };
+allow-recursion-on { serv20.3; };
+
+zone "iesebre.com" IN {
+type master;
+file "/etc/bind/aula203/db.203.hosts";
+allow-transfer { 192.168.203.1; };
+allow-update {key "rndc-key"; };
+notify yes;
+};
+
+zone "203.168.192.in-addr.arpa" IN {
+type master;
+file "/etc/bind/aula203/203.rev";
+allow-transfer { 192.168.203.1; };
+allow-update {key "rndc-key"; };
+notify yes;
+};
+include "/etc/bind/named.conf.default-zones";
+};
+
+//Vista y zonas para el aula 20.4
+view "aula20.4" {
+match-clients { aula20.4; !any; };
+allow-recursion-on { serv20.4; };
+
+zone "iesebre.com" IN {
+type master;
+file "/etc/bind/aula204/db.204.hosts";
+allow-transfer { 192.168.204.1; };
+allow-update {key "rndc-key"; };
+notify yes;
+};
+
+zone "204.168.192.in-addr.arpa" IN {
+type master;
+file "/etc/bind/aula204/204.rev";
+allow-transfer { 192.168.204.1; };
+allow-update {key "rndc-key"; };
+notify yes;
+};
+include "/etc/bind/named.conf.default-zones";
+};
+
+include "/etc/bind/rndc.key";

@@ -1,0 +1,12 @@
+;
+; BIND data file for direct aula20.3 interface
+;
+$TTL	604800
+@	IN	SOA	aula203.iesebre.com. root.aula203.iesebre.com. (
+			      1		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+aula203.iesebre.com.hosts.	IN	NS	aula203.iesebre.com.
+aula203.iesebre.com.	IN	A	192.168.203.1
