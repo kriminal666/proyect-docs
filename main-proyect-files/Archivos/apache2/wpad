@@ -1,0 +1,13 @@
+<VirtualHost *:80>
+    ServerName wpad.iesebre.com
+    ServerAlias proxy wpad wpad.iesebre.com
+    DocumentRoot /var/www/wpad
+
+    <Directory /var/www/wpad/>
+      Options Indexes FollowSymLinks
+      AllowOverride None
+      Order allow,deny
+      Allow from 192.168.202.0/24 192.168.203.0/24 192.168.204.0/24
+    </Directory>
+
+</VirtualHost>
